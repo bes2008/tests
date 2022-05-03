@@ -13,7 +13,6 @@ expr: ID
     | '(' expr ')'
     | expr UNARY_OPERATION
     | expr BINARY_OPERATION expr
-    |
     ;
 
 
