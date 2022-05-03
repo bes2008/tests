@@ -1,5 +1,5 @@
 grammar ArrayInit;
-import CommonLexerGrammar;
+import basic;
 
 expr : '{' value (',' value)* '}' ;
 
