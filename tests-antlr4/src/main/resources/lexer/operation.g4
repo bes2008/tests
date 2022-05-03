@@ -21,7 +21,7 @@ NE: ('!=' | '<>');
 BINARY_COMPARISION: (GT|GE|LT|LE|EQ|NE);
 
 // 逻辑运算符
-AND0: ('A'|'a')('N'|'n')('D'|'d'); // and
+AND0: [Aa][Nn][Dd]; // and
 AND: (AND0 | '&&');
 OR0: ('O'|'o')('R'|'r'); // or
 OR: (OR0 | '|');

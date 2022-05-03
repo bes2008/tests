@@ -70,26 +70,67 @@
                 <artifactId>antlr4-maven-plugin</artifactId>
                 <version>${antlr4.version}</version>
 
-
-
-
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <libDirectory>${project.basedir}/src/main/resources/lexer</libDirectory>
+                    <sourceDirectory>${project.basedir}/src/main/resources/grammar</sourceDirectory>
+                </configuration>
                 <executions>
                     <execution>
+                        <id>generate-sources: hello</id>
                         <goals>
                             <goal>antlr4</goal>
                         </goals>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <encoding>UTF-8</encoding>
-                            <sourceDirectory>${project.basedir}/src/main/resources/grammar</sourceDirectory>
-                            <libDirectory>${project.basedir}/src/main/resources/lexer</libDirectory>
-                            <outputDirectory>${project.basedir}/src/generated/java/com/fjn/tests/antlr4</outputDirectory>
+                            <outputDirectory>${project.basedir}/src/generated/java/com/fjn/tests/antlr4/hello</outputDirectory>
+                            <includes>
+                                <include>Hello.g4</include>
+                            </includes>
                             <arguments>
                                 <argument>-package</argument>
-                                <argument>com.fjn.tests.antlr4</argument>
+                                <argument>com.fjn.tests.antlr4.hello</argument>
                             </arguments>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>generate-sources: arrayinit</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/generated/java/com/fjn/tests/antlr4/arrayinit</outputDirectory>
+                            <includes>
+                                <include>ArrayInit.g4</include>
+                            </includes>
+                            <arguments>
+                                <argument>-package</argument>
+                                <argument>com.fjn.tests.antlr4.arrayinit</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>generate-sources: json</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/src/generated/java/com/fjn/tests/antlr4/json</outputDirectory>
+                            <includes>
+                                <include>Json.g4</include>
+                            </includes>
+                            <arguments>
+                                <argument>-package</argument>
+                                <argument>com.fjn.tests.antlr4.json</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+
                 </executions>
 
 
