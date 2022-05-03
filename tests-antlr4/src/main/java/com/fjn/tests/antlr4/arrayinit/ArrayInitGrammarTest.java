@@ -1,9 +1,5 @@
-package com.fjn.tests.antlr4;
+package com.fjn.tests.antlr4.arrayinit;
 
-
-import com.fjn.tests.antlr4.arrayinit.ArrayInitLexer;
-import com.fjn.tests.antlr4.arrayinit.ArrayInitListener;
-import com.fjn.tests.antlr4.arrayinit.ArrayInitParser;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;

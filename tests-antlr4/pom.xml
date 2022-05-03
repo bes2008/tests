@@ -74,6 +74,7 @@
                     <encoding>UTF-8</encoding>
                     <libDirectory>${project.basedir}/src/main/resources/lexer</libDirectory>
                     <sourceDirectory>${project.basedir}/src/main/resources/grammar</sourceDirectory>
+                    <visitor>true</visitor>
                 </configuration>
                 <executions>
                     <execution>
