@@ -1,4 +1,4 @@
-grammar hello;
+grammar Hello;
 
 import basic, operation;
 

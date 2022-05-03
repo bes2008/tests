@@ -1,5 +1,8 @@
-// Generated from D:/projects/workspace_test_idea/tests/tests-antlr/src/main/resources\ArrayInit.g4 by ANTLR 4.7
+// Generated from D:\Projects\workspace_test\tests\tests-antlr4\src\main\resources\grammar\ArrayInit.g4 by ANTLR 4.5.3
+package com.fjn.test.antlr4;
+
 package com.fjn.tests.antlr4.arrayinit;
+
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -16,25 +19,13 @@ public class ArrayInitBaseListener implements ArrayInitListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProg(ArrayInitParser.ProgContext ctx) { }
+	@Override public void enterExpr(ArrayInitParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProg(ArrayInitParser.ProgContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterInit(ArrayInitParser.InitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInit(ArrayInitParser.InitContext ctx) { }
+	@Override public void exitExpr(ArrayInitParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
