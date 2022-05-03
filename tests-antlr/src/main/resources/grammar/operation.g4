@@ -23,9 +23,9 @@ BINARY_COMPARISION: (GT|GE|LT|LE|EQ|NE);
 // 逻辑运算符
 AND0: ('A'|'a')('N'|'n')('D'|'d'); // and
 AND: (AND0 | '&&');
-OR0: ('O'|'o')('R'|'r');
+OR0: ('O'|'o')('R'|'r'); // or
 OR: (OR0 | '|');
-NOT0: ('N'|'n')('O'|'o')('T'|'t');
+NOT0: ('N'|'n')('O'|'o')('T'|'t'); // not
 NOT: (NOT0 | '!');
 
 UNARY_LOGIC: NOT;
