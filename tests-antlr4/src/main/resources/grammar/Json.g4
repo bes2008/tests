@@ -51,8 +51,5 @@ array
     | ARRAY_START value (',' value ) * ARRAY_END
     ;
 
-json
-    : object
-    | array
-    ;
+json : value;
 
