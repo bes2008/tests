@@ -11,7 +11,7 @@ public class Antlr4GenerateTests {
         String packageName = "com.fjn.tests.antlr4";
         String[] cmdArgs = new String[]{
                 "-Dlanguage=Java",
-                "-lib", workdir + "\\tests-antlr4\\src\\main\\resources\\lexer",
+                "-lib", workdir + "\\tests-antlr4\\src\\main\\resources\\commonlexer",
                 "-package", packageName,
                 "-o", workdir + "\\tests-antlr4\\src\\generated\\java/"+ Strings.replace(packageName,".","/"),
                 workdir + "\\tests-antlr4\\src\\main\\resources\\grammar\\ArrayInit.g4",
