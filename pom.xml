@@ -13,7 +13,8 @@
         <module>tests-flink</module>
         <module>tests-spark</module>
         <module>tests-yaml</module>
-        <module>tests-antlr</module>
+        <module>tests-antlr4</module>
+        <module>tests-spring-reactor</module>
     </modules>
     <properties>
         <source.jdk.version>1.8</source.jdk.version>
@@ -24,7 +25,7 @@
         <scala.version>2.11</scala.version>
         <encoding>UTF-8</encoding>
 
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.16</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
 
@@ -132,6 +133,26 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/main/java</source>
+                                <source>src/generated/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
