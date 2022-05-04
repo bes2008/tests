@@ -17,9 +17,8 @@ public class JsonParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, STRING_START=3, STRING_END=4, STRING=5, NULL=6, OBJ_START=7, 
-		OBJ_END=8, ARRAY_START=9, ARRAY_END=10, ID=11, INT=12, NEWLINE=13, WS=14, 
-		NUMBER=15, BOOL=16;
+		WS=1, NUMBER=2, BOOL=3, STRING=4, NULL=5, OBJ_START=6, OBJ_END=7, PAIR_SEPAR=8, 
+		ARRAY_SEPAR=9, ARRAY_START=10, ARRAY_END=11;
 	public static final int
 		RULE_value = 0, RULE_pair = 1, RULE_object = 2, RULE_array = 3, RULE_json = 4;
 	public static final String[] ruleNames = {
@@ -27,13 +26,12 @@ public class JsonParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "':'", "','", "'\"'", null, null, "'null'", "'{'", "'}'", "'['", 
+		null, null, null, null, null, "'null'", "'{'", "'}'", "':'", "','", "'['", 
 		"']'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, "STRING_START", "STRING_END", "STRING", "NULL", "OBJ_START", 
-		"OBJ_END", "ARRAY_START", "ARRAY_END", "ID", "INT", "NEWLINE", "WS", "NUMBER", 
-		"BOOL"
+		null, "WS", "NUMBER", "BOOL", "STRING", "NULL", "OBJ_START", "OBJ_END", 
+		"PAIR_SEPAR", "ARRAY_SEPAR", "ARRAY_START", "ARRAY_END"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -174,6 +172,7 @@ public class JsonParser extends Parser {
 
 	public static class PairContext extends ParserRuleContext {
 		public TerminalNode STRING() { return getToken(JsonParser.STRING, 0); }
+		public TerminalNode PAIR_SEPAR() { return getToken(JsonParser.PAIR_SEPAR, 0); }
 		public ValueContext value() {
 			return getRuleContext(ValueContext.class,0);
 		}
@@ -200,7 +199,7 @@ public class JsonParser extends Parser {
 			setState(18);
 			match(STRING);
 			setState(19);
-			match(T__0);
+			match(PAIR_SEPAR);
 			setState(20);
 			value();
 			}
@@ -224,6 +223,10 @@ public class JsonParser extends Parser {
 		}
 		public PairContext pair(int i) {
 			return getRuleContext(PairContext.class,i);
+		}
+		public List<TerminalNode> ARRAY_SEPAR() { return getTokens(JsonParser.ARRAY_SEPAR); }
+		public TerminalNode ARRAY_SEPAR(int i) {
+			return getToken(JsonParser.ARRAY_SEPAR, i);
 		}
 		public ObjectContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -266,11 +269,11 @@ public class JsonParser extends Parser {
 				setState(30);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__1) {
+				while (_la==ARRAY_SEPAR) {
 					{
 					{
 					setState(26);
-					match(T__1);
+					match(ARRAY_SEPAR);
 					setState(27);
 					pair();
 					}
@@ -346,11 +349,11 @@ public class JsonParser extends Parser {
 				setState(45);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				while (_la==T__1) {
+				while (_la==ARRAY_SEPAR) {
 					{
 					{
 					setState(41);
-					match(T__1);
+					match(ARRAY_SEPAR);
 					setState(42);
 					value();
 					}
@@ -416,20 +419,20 @@ public class JsonParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\229\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\r9\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\2\3\2\3\2\3\2\5\2\23\n\2\3\3\3\3"+
 		"\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\7\4\37\n\4\f\4\16\4\"\13\4\3\4\3\4\5"+
 		"\4&\n\4\3\5\3\5\3\5\3\5\3\5\3\5\7\5.\n\5\f\5\16\5\61\13\5\3\5\3\5\5\5"+
 		"\65\n\5\3\6\3\6\3\6\2\2\7\2\4\6\b\n\2\2<\2\22\3\2\2\2\4\24\3\2\2\2\6%"+
-		"\3\2\2\2\b\64\3\2\2\2\n\66\3\2\2\2\f\23\5\6\4\2\r\23\5\b\5\2\16\23\7\7"+
-		"\2\2\17\23\7\21\2\2\20\23\7\22\2\2\21\23\7\b\2\2\22\f\3\2\2\2\22\r\3\2"+
-		"\2\2\22\16\3\2\2\2\22\17\3\2\2\2\22\20\3\2\2\2\22\21\3\2\2\2\23\3\3\2"+
-		"\2\2\24\25\7\7\2\2\25\26\7\3\2\2\26\27\5\2\2\2\27\5\3\2\2\2\30\31\7\t"+
-		"\2\2\31&\7\n\2\2\32\33\7\t\2\2\33 \5\4\3\2\34\35\7\4\2\2\35\37\5\4\3\2"+
+		"\3\2\2\2\b\64\3\2\2\2\n\66\3\2\2\2\f\23\5\6\4\2\r\23\5\b\5\2\16\23\7\6"+
+		"\2\2\17\23\7\4\2\2\20\23\7\5\2\2\21\23\7\7\2\2\22\f\3\2\2\2\22\r\3\2\2"+
+		"\2\22\16\3\2\2\2\22\17\3\2\2\2\22\20\3\2\2\2\22\21\3\2\2\2\23\3\3\2\2"+
+		"\2\24\25\7\6\2\2\25\26\7\n\2\2\26\27\5\2\2\2\27\5\3\2\2\2\30\31\7\b\2"+
+		"\2\31&\7\t\2\2\32\33\7\b\2\2\33 \5\4\3\2\34\35\7\13\2\2\35\37\5\4\3\2"+
 		"\36\34\3\2\2\2\37\"\3\2\2\2 \36\3\2\2\2 !\3\2\2\2!#\3\2\2\2\" \3\2\2\2"+
-		"#$\7\n\2\2$&\3\2\2\2%\30\3\2\2\2%\32\3\2\2\2&\7\3\2\2\2\'(\7\13\2\2(\65"+
-		"\7\f\2\2)*\7\13\2\2*/\5\2\2\2+,\7\4\2\2,.\5\2\2\2-+\3\2\2\2.\61\3\2\2"+
-		"\2/-\3\2\2\2/\60\3\2\2\2\60\62\3\2\2\2\61/\3\2\2\2\62\63\7\f\2\2\63\65"+
+		"#$\7\t\2\2$&\3\2\2\2%\30\3\2\2\2%\32\3\2\2\2&\7\3\2\2\2\'(\7\f\2\2(\65"+
+		"\7\r\2\2)*\7\f\2\2*/\5\2\2\2+,\7\13\2\2,.\5\2\2\2-+\3\2\2\2.\61\3\2\2"+
+		"\2/-\3\2\2\2/\60\3\2\2\2\60\62\3\2\2\2\61/\3\2\2\2\62\63\7\r\2\2\63\65"+
 		"\3\2\2\2\64\'\3\2\2\2\64)\3\2\2\2\65\t\3\2\2\2\66\67\5\2\2\2\67\13\3\2"+
 		"\2\2\7\22 %/\64";
 	public static final ATN _ATN =
